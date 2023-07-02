@@ -16,7 +16,7 @@ const Login = () => {
   
       await axios
         .post(
-          `https://ecommerce-server-kr4f.onrender.com/rveruser/login-user`,
+          `${server}/user/login-user`,
           {
             email,
             password,
@@ -27,6 +27,7 @@ const Login = () => {
           toast.success("Login Success!");
           navigate("/");
           window.location.reload(true); 
+          console.log(res)
         })
         .catch((err) => {
           toast.error(err.response.data.message);
