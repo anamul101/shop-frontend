@@ -26,7 +26,7 @@ const ShopInfo = ({ isOwner }) => {
   }, [])
   const logoutHandler = () => {
     axios.get(`${server}/shop/logout`, {
-      withCredentials: true,
+      // withCredentials: false,
     });
     window.location.reload();
   }
@@ -36,7 +36,7 @@ const ShopInfo = ({ isOwner }) => {
 
 const totalRatings = products && products.reduce((acc,product) => acc + product.reviews.reduce((sum,review) => sum + review.rating, 0),0);
 
-const averageRating = totalRatings / totalReviewsLength || 0;
+const averageRating = totalRatings / totalReviewsLength.toFixed(2) || 0;
 
   return (
     <>
